@@ -6,4 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Get issue details
-        run: echo "${{ github.event.issue.title }} - {{ github.event.issue.body }}"
+        run: echo "${{ toJSon(github.event) }}"
+        run: echo "${{ github.event.issue.title }} - ${{ github.event.issue.body }}"
