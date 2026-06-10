@@ -4,24 +4,29 @@ jobs:
   Lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: get code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
       - name: Run linter
-        run: echo "Running linter..."
+        run: npm run lint
   Test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: get code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
       - name: Run tests
-        run: echo "Running tests..."
+        run: npm run test
   Build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: get code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
       - name: Build application
-        run: echo "Building application..."
-  Deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+        run: npm run build
       - name: Deploy application
         run: echo "Deploying application..."
