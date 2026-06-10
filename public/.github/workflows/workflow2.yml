@@ -1,0 +1,9 @@
+name: Workflow2
+on: issues
+jobs:
+  issue_details:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get issue details
+        run: echo {{ github.event.issue.title }} - {{ github.event.issue.body }}
